@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Send } from "lucide-react";
+import ReactMarkdown from 'react-markdown';
 
 export default function Home() {
   const [messages, setMessages] = useState<{ id: number; role: string; content: string }[]>([]);
@@ -80,7 +81,7 @@ export default function Home() {
                       message.role === "user" ? "bg-primary text-primary-foreground" : "bg-muted"
                     }`}
                   >
-                    <p className="whitespace-pre-wrap">{message.content}</p>
+                    <div className="whitespace-pre-wrap"><ReactMarkdown>{message.content}</ReactMarkdown> </div>
                   </div>
 
                   {message.role === "user" && (
