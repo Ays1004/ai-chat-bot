@@ -34,7 +34,7 @@ export default function Home() {
     setIsLoading(true);
 
     try {
-      const response = await fetch("/api/route", {
+      const response = await fetch("/api/groq", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ contents: input }),
